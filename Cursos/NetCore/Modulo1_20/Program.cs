@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
 
 namespace Modulo1_20
 {
@@ -11,11 +8,7 @@ namespace Modulo1_20
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .Configure(
-                    app => {
-                        app.Run(context => context.Response.WriteAsync("Ola Mundo2"));
-                    }
-                )
+                .UseStartup<Startup>()
                 .Build();
 
             host.Run();
