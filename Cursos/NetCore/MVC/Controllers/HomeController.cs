@@ -5,13 +5,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
+using MVC.Repository;
 
 namespace MVC.Controllers
 {
     public class HomeController : Controller
     {
+        private IPeopleRepository _peopleRepository;
+
+        /* Modelo SEM Dependency Injection
+        public HomeController(IPeopleRepository repository)
+        {
+            _peopleRepository = new PeopleRepository("SQLServer:8080");
+        } */
+
+        /* Modelo COM Dependency Injection */
+        public HomeController(IPeopleRepository repository)
+        {
+            _peopleRepository = repository;
+        }
+
         public IActionResult Index()
         {
+            ViewData["Name"] = _peopleRepository.getNameById(2);
+
             return View();
         }
 

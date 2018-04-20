@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MVC.Repository;
 
 namespace MVC
 {
@@ -22,6 +23,9 @@ namespace MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            /* Inicializar o repositorio atraves da Dependency Injection  */
+            services.AddTransient<IPeopleRepository>(repository => new PeopleRepository("http://SqlServer:8081"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
