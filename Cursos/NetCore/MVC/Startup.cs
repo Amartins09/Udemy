@@ -46,7 +46,22 @@ namespace MVC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}")
+                    .MapRoute(
+                        name: "about-rout",
+                        template: "About",
+                        defaults: new {controller="Home", action="About"}
+                    )
+                    .MapRoute(
+                        name: "contact-rout",
+                        template: "Contact",
+                        defaults: new {controller="Home", action="Contact"}
+                    )
+                    .MapRoute(
+                        name: "apiProduct",
+                        template: "api/product/{action=Get}/{id?}",
+                        defaults: new {Controller="Product"} 
+                    );
             });
         }
     }
