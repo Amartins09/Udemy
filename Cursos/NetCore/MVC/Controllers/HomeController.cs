@@ -16,7 +16,7 @@ namespace MVC.Controllers
         /* Modelo SEM Dependency Injection
         public HomeController(IPeopleRepository repository)
         {
-            _peopleRepository = new PeopleRepository("SQLServer:8080");
+            _peopleRepository = new PeopleRepository("http://SQLServer:8080");
         } */
 
         /* Modelo COM Dependency Injection */
