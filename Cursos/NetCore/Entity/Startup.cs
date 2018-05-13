@@ -24,7 +24,7 @@ namespace Entity
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("BancoEntity")));
+                options.UseMySql(Configuration.GetConnectionString("BancoEntity")));
 
             services.AddMvc();
         }
