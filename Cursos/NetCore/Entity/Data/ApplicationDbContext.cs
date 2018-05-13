@@ -11,8 +11,6 @@ namespace Entity.Data{
         public DbSet<Category> Categories {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
-            modelBuilder.Entity<Product>().Property(p => p.Name).HasMaxLength(100).IsRequired();
-            modelBuilder.Entity<Category>().Property(p => p.Name).HasMaxLength(50);
         }    
     }
 }

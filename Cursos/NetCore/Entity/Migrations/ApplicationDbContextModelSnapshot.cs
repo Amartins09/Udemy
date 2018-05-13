@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace Entity.Migrations
@@ -25,8 +23,7 @@ namespace Entity.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(50);
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
@@ -40,15 +37,13 @@ namespace Entity.Migrations
 
                     b.Property<int?>("CategoryId");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100);
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("products");
                 });
 
             modelBuilder.Entity("Entity.Domain.Product", b =>
