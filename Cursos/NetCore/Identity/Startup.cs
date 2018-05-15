@@ -29,7 +29,16 @@ namespace Identity
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            //Customizar Regras do password
+            services.AddIdentity<ApplicationUser, IdentityRole>(
+                option => {
+                    option.Password.RequireDigit = false;
+                    option.Password.RequireNonAlphanumeric = false;
+                    option.Password.RequireLowercase = false;
+                    option.Password.RequireUppercase = false;
+                    option.Password.RequiredLength = 3;
+                }
+            )
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             
