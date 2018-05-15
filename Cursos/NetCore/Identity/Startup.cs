@@ -81,6 +81,13 @@ namespace Identity
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            var roleManager = app.ApplicationServices.GetService<RoleManager<IdentityRole>>();
+
+            if (!roleManager.RoleExistsAsync("ADMIN").Result)
+              roleManager.CreateAsync(new IdentityRole("ADMIN"));
+            if (!roleManager.RoleExistsAsync("MANGER").Result)
+              roleManager.CreateAsync(new IdentityRole("MANGER"));            
         }
     }
 }

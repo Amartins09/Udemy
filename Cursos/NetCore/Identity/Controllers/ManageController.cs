@@ -16,7 +16,7 @@ using Identity.Services;
 
 namespace Identity.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "ADMIN")]
     [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
