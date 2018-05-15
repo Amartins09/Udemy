@@ -32,6 +32,11 @@ namespace Identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            
+            //Personalizar Uri de Login
+            services.ConfigureApplicationCookie(options => {
+                options.LoginPath = "/Logar";
+            });
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
@@ -58,6 +63,11 @@ namespace Identity
 
             app.UseMvc(routes =>
             {
+                //Personalizar Uri de Login
+                routes.MapRoute(
+                    name: "Login",
+                    template: "Logar",
+                    defaults: new { controller = "Account", action = "Login" });
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
