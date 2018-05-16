@@ -10,3 +10,14 @@ gulp.task('js', function(){
     ])
     .pipe(gulp.dest('wwwroot/js/'));
 });
+
+gulp.task('css', function(){
+    return gulp.src([
+        './styles/site.css',
+        './node_modules/bootstrap/dist/css/bootstrap.css'
+    ])
+    .pipe(concat('site.min.css'))
+    .pipe(cssmin())
+    .pipe(uncss({html: ['Views/**/*.cshtml']}))
+    .pipe(gulp.dest('wwwroot/css'));
+});
