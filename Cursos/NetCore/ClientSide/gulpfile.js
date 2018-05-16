@@ -14,10 +14,14 @@ gulp.task('js', function(){
 gulp.task('css', function(){
     return gulp.src([
         './styles/site.css',
-        './node_modules/bootstrap/dist/css/bootstrap.css'
+        './node_modules/bootstrap/dist/css/bootstrap.css',
     ])
     .pipe(concat('site.min.css'))
     .pipe(cssmin())
     .pipe(uncss({html: ['Views/**/*.cshtml']}))
-    .pipe(gulp.dest('wwwroot/css'));
+    .pipe(gulp.dest('wwwroot/css/'));
+});
+
+gulp.task('watch-css', function(){
+    gulp.watch('./styles/*.css', ['css']);
 });
