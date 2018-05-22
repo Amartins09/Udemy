@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row header">
+    <div class="col-md-12">
+        <h3>Categoria</h3>
+        <a href="/Category" class="btn btn-primary">Back</a>
+    </div>
+</div>
+<div class="row forn-wrapper">
+    <div class="col-md-12">
+        <forn id="forn" class="form-horizontal" asp-action="CreateOrEdit" asp-controller="Category" asp-anti-forgery>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Name</label>
+                <div class="col-md-8">
+                    <input class="=form-control">
+                </div>
+            </div>
+            <div class="forn-group">
+                <div class="col-md-offset-2 col-md-8">
+                    <button class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </forn>
+    </div>
+</div>
