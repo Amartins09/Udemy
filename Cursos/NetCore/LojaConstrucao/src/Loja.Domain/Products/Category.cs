@@ -1,8 +1,7 @@
 namespace Loja.Domain.Products{
     
-    public class Category{
-
-        public int Id {get; private set;}
+    public class Category : Entity{
+        
         public string Name {get; private set;}
 
         public Category(string name)
