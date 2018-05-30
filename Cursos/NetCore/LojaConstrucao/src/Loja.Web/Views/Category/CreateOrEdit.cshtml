@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Cadastro de Categorias";
 }
 
 <div class="row header">
@@ -11,10 +11,12 @@
 <div class="row forn-wrapper">
     <div class="col-md-12">
         <forn id="forn" class="form-horizontal" asp-action="CreateOrEdit" asp-controller="Category" asp-anti-forgery>
+            <input type="hidden" class="form-control" asp-for="Id"/>
             <div class="form-group">
                 <label class="col-md-2 control-label">Name</label>
                 <div class="col-md-8">
-                    <input class="=form-control">
+                    <input type="text" class="form-control" asp-for="Name"/>
+                    <aspn asp-validation-for="Name" class"text-danger"></aspn>
                 </div>
             </div>
             <div class="forn-group">
@@ -25,3 +27,7 @@
         </forn>
     </div>
 </div>
+@section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Loja.Web.Models;
 using Loja.Domain.Dtos;
 using Loja.Domain.Products;
+using Loja.Web.ViewModel;
 
 namespace Loja.Web.Controllers
 {
@@ -30,9 +31,9 @@ namespace Loja.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOrEdit(CategoryDto dto)
+        public IActionResult CreateOrEdit(CategoryViewModel viewModel)
         {
-            _categoruStore.Store(dto);
+            _categoruStore.Store(viewModel.Id, viewModel.Name);
             return View();
         }
     }
