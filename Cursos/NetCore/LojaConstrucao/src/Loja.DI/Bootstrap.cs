@@ -12,8 +12,9 @@ namespace Loja.DI
         public static void Configure(IServiceCollection services, string connection){
             services.AddDbContext<ApplicationDbContext>(options =>
                                     options.UseMySql(connection));
-            services.AddSingleton(typeof(IRepository<>), typeof(Repository<>)));
+            services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
             services.AddSingleton(typeof(CategoryStore));
+            services.AddSingleton(typeof(IUnitOfWork), typeof(UnitOfWork));
         }
     }
 }
