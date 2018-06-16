@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Loja.Web.Models;
-using Loja.Domain.Dtos;
 using Loja.Domain.Products;
 using Loja.Web.ViewModel;
 
@@ -13,10 +12,10 @@ namespace Loja.Web.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly CategoryStore _categoruStore;
+        private readonly CategoryStore _categoryStore;
 
         public CategoryController(CategoryStore categoryStore){
-            _categoruStore = categoryStore;
+            _categoryStore = categoryStore;
         }
 
         public IActionResult Index()
@@ -33,7 +32,7 @@ namespace Loja.Web.Controllers
         [HttpPost]
         public IActionResult CreateOrEdit(CategoryViewModel viewModel)
         {
-            _categoruStore.Store(viewModel.Id, viewModel.Name);
+            _categoryStore.Store(viewModel.Id, viewModel.Name);
             return View();
         }
     }

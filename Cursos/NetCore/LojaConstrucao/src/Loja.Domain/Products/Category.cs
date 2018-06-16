@@ -4,6 +4,8 @@ namespace Loja.Domain.Products{
         
         public string Name {get; private set;}
 
+        public Category(){}
+
         public Category(string name)
         {
             ValidateAndSetProperties(name);
@@ -16,6 +18,7 @@ namespace Loja.Domain.Products{
         private void ValidateAndSetProperties(string name)
         {
             DomainException.When(string.IsNullOrEmpty(name), "O nome da Categoria é obrigatorio");
+            DomainException.When(name.Length < 3, "Tamanho invalido");
 
             Name = name;
         }

@@ -1,10 +1,8 @@
-using Loja.Domain.Dtos;
-
 namespace Loja.Domain.Products{
 
     public class CategoryStore{
 
-        public IRepository<Category> _categoryRepository { get; }
+        public readonly IRepository<Category> _categoryRepository;
 
         public CategoryStore(IRepository<Category> categoryRepository){
             _categoryRepository = categoryRepository;
