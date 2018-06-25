@@ -1,22 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Cadastro de Categorias";
+﻿@model Loja.Web.ViewsModels.CategoryViewModel
+@{
+    ViewData["Title"] = "Category";
 }
 
 <div class="row header">
     <div class="col-md-12">
-        <h3>Categoria</h3>
+        <h3>Category</h3>
         <a href="/Category" class="btn btn-primary">Back</a>
     </div>
 </div>
 <div class="row form-wrapper">
     <div class="col-md-12">
-        <form id="form" class="form-horizontal" asp-action="CreateOrEdit" asp-controller="Category" asp-anti-forgery>
-            <input type="hidden" class="form-control" asp-for="Id"/>
+        <form id="form" class="form-horizontal" asp-action="CreateOrEdit" asp-controller="Category"
+            data-ajax="true" data-ajax-method="POST" data-ajax-failure="formOnFail" data-ajax-success="window.location = '/Category'"              
+            asp-anti-forgery>
+            <input type="hidden" class="form-control" asp-for="Id" >
             <div class="form-group">
                 <label class="col-md-2 control-label">Name</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control" asp-for="Name"/>
-                    <span asp-validation-for="Name" class"text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Name">    
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group">
@@ -27,7 +30,9 @@
         </form>
     </div>
 </div>
+
 @section Scripts {
     <script src="/js/jquery.validate.min.js"></script>
-    <script src="/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
 }

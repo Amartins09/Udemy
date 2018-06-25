@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Loja.Domain.Account;
 
 namespace Loja.Data.Identity
 {

@@ -9,8 +9,8 @@ gulp.task('browser-sync', function(){
         proxy: 'localhost:5000'
     });
 
-    gulp.watch('./Styles/*.css', ['css']);
-    gulp.watch('./js/*.js', ['js']);
+    gulp.watch('./Style/*.css', ['css']);
+    gulp.watch('./Js/*.js', ['js']);
 });
 
 gulp.task('js', function(){
@@ -19,20 +19,20 @@ gulp.task('js', function(){
         './node_modules/jquery/dist/jquery.min.js',
         './node_modules/jquery-validation/dist/jquery.validate.min.js',
         './node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js',
-        './Styles/site.js',
+        './js/**/*.js',
     ])
-    .pipe(gulp.dest('wwwroot/js/'))
+    .pipe(gulp.dest('./Js/'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('css', function(){
     return gulp.src([
-        './Styles/site.css',
+        './styles/site.css',
         './node_modules/bootstrap/dist/css/bootstrap.css',
     ])
     .pipe(concat('site.min.css'))
-    //.pipe(cssmin())
-    //.pipe(uncss({html: ['Views/**/*.cshtml']}))
-    .pipe(gulp.dest('wwwroot/css'))
+    .pipe(cssmin())
+    .pipe(uncss({html: ['Views/**/*.cshtml']}))
+    .pipe(gulp.dest('./Styles/css'))
     .pipe(browserSync.stream());
 });

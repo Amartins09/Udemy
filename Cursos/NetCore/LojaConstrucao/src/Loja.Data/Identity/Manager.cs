@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Loja.Data.Contexts;
 using Microsoft.AspNetCore.Identity;
+using Loja.Domain.Account;
 
 namespace Loja.Data.Identity
 {

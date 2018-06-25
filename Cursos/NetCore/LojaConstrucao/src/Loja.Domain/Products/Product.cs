@@ -1,6 +1,6 @@
 namespace Loja.Domain.Products{
 
-    public class Product{
+    public class Product : Entity{
         public string Name {get; private set;}
         public Category Category {get; private set;}
         public decimal Price {get; private set;}

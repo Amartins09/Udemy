@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Loja.Data.Contexts;
 using Loja.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace Loja.Data.Repositores{
 
@@ -23,7 +24,7 @@ namespace Loja.Data.Repositores{
             return null;
         }
 
-        public virtual IOrderedEnumerable<TEntity> All(){
+        public virtual IEnumerable<TEntity> All(){
             var query = _context.Set<TEntity>();
 
             if(query.Any())

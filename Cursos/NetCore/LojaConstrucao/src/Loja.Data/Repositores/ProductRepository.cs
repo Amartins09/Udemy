@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Loja.Data.Contexts;
-using Loja.Data.Repositores;
 using Loja.Domain.Products;
 
-namespace Loja.Data.Repositories
+namespace Loja.Data.Repositores
 {
     public class ProductRepository : Repository<Product>
     {
