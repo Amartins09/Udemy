@@ -64,7 +64,7 @@ namespace Loja.Web
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {

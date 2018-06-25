@@ -9,12 +9,5 @@
     "migration-script": "cd .\\src\\Loja.Data\\ && dotnet ef --startup-project ..\\Loja.Web\\Loja.Web.csproj migrations script",
     "remove-migration": "cd .\\src\\Loja.Data\\ && dotnet ef --startup-project ..\\Loja.Web\\Loja.Web.csproj migrations remove",
     "database-update": "cd .\\src\\Loja.Data\\ && dotnet ef --startup-project ..\\Loja.Web\\Loja.Web.csproj database update"
-  },
-  "dependencies": {
-    "browser-sync": "^2.24.5",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-uncss": "^1.0.6"
   }
 }
